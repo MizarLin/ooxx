@@ -3,10 +3,10 @@
     <div>
 
       <nav class="navbar">
-        <a class="navbar-brand"><h4><b>搜尋測試</b></h4></a>
+        <a class="navbar-brand"><h4><b>APP管理</b></h4></a>
         <form class="form-inline">
-          <input class="form-control mr-sm-2" type="search" placeholder="會員名字" aria-label="Search" v-model="search">
-          <button class="btn btn-outline-success my-2 my-sm-0" v-on="searchBtn">搜尋</button>
+          <input class="form-control mr-sm-2" type="search" placeholder="會員名字" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">搜尋</button>
         </form>
       </nav>
 
@@ -20,17 +20,15 @@
               <th scope="col">No.</th>
               <th scope="col">APP名稱</th>
               <th scope="col">簡介</th>
-              <th scope="col">開發者</th>
-              <th scope="col">上傳日期</th>
-              <th scope="col">是否同意</th>
+              <th scope="col">系統</th>
+              <th scope="col">停用</th>
             </tr>
           </thead>
           <tbody>
-            <tr v-for="event in events" v-bind:key="event.id">
+            <tr v-for="event in events" :key="event.id">
               <td>{{event.id}}</td>
               <td>{{event.name}}</td>
               <td>{{event.short}}</td>
-              <td>{{event.user}}</td>
               <td>{{event.date}}</td>
               <td>
                 <button type="button" class="btn btn-primary btn-sm">是</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -50,20 +48,18 @@
   export default {
     data() {
       return {
-      events: []
+        events: []
       }
     },
     created() {
-      EventService.getApps().then(response => {
-        this.events = response.data
-        // console.log("data---",response.data);
-      })
-      .catch(error => {
-        // console.log('There was an error:', error.response)
-      })
-    },
-    methods() {
-      
+      EventService.getApps()
+        .then(response => {
+          this.events = response.data
+          console.log("data---",response.data);
+        })
+        .catch(error => {
+          console.log('There was an error:', error.response)
+        })
     }
   }
 </script>

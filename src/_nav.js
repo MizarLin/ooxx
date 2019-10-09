@@ -1,54 +1,54 @@
 export default {
   items: [
     {
-      name: 'test',
-      url: '/test',
-      icon: 'icon-mouse'
+      name: '個人資料修改',
+      url: '/demo1',
+      icon: 'icon-star'
     },
     {
-      name: 'test1',
-      url: '/test1',
-      icon: 'icon-mouse'
+      name: '審核APP',
+      url: '/demo2',
+      icon: 'icon-star'
     },
     {
-      name: 'test2',
-      url: '/test2',
-      icon: 'icon-mouse'
+      name: '審核開發者',
+      url: '/demo3',
+      icon: 'icon-star'
     },
     {
-      name: 'test3',
-      url: '/test3',
-      icon: 'icon-mouse'
+      name: '會員管理',
+      url: '/demo4',
+      icon: 'icon-star'
     },
     {
-      name: 'test4',
-      url: '/test4',
-      icon: 'icon-mouse'
+      name: 'APP管理',
+      url: '/demo5',
+      icon: 'icon-star'
     },
     {
-      name: 'test5',
-      url: '/test5',
-      icon: 'icon-mouse'
+      name: '新增開發者',
+      url: '/demo6',
+      icon: 'icon-star'
     },
     {
       name: 'test6',
       url: '/test6',
-      icon: 'icon-mouse'
+      icon: 'icon-star'
     },
     {
       name: 'test7',
       url: '/test7',
-      icon: 'icon-mouse'
+      icon: 'icon-star'
     },
     {
       name: 'test8',
       url: '/test8',
-      icon: 'icon-mouse'
+      icon: 'icon-star'
     },
     {
       name: 'test9',
       url: '/test9',
-      icon: 'icon-mouse'
+      icon: 'icon-star'
     },
 
 
@@ -228,11 +228,11 @@ export default {
     //       url: '/icons/flags',
     //       icon: 'icon-star'
     //     },
-        // {
-        //   name: 'Simple Line Icons',
-        //   url: '/icons/simple-line-icons',
-        //   icon: 'icon-mouse'
-        // },
+    //     {
+    //       name: 'Simple Line Icons',
+    //       url: '/icons/simple-line-icons',
+    //       icon: 'icon-mouse'
+    //     },
     //     {
     //       name: 'Font Awesome',
     //       url: '/icons/font-awesome',

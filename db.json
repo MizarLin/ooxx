@@ -1,0 +1,71 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "member": [
+    {
+    "id": 1,
+    "name":"Mark",
+    "phone":"0911-234567",
+    "email":"mark@gmail.com",
+    "twId":"n11223344",
+    "password":"1234",
+    "level":"1",
+    "verify":"2",
+    "right":"test",
+    "imgId":""
+    },
+    {
+    "id": 2,
+    "name":"Mark",
+    "phone":"0911-234567",
+    "email":"mark@gmail.com",
+    "twId":"n11223344",
+    "password":"1234",
+    "level":"1",
+    "verify":"2",
+    "right":"test",
+    "imgId":""
+    }
+  ],
+  "appuser": [
+    {
+    "id": 1,
+    "name":"Mark",
+    "short":"0911-234567",
+    "user":"mark@gmail.com",
+    "date":"n11223344",
+    "try":"n11223344"
+    },
+    {
+      "id": 2,
+      "name":"MMark",
+      "short":"0911-234567",
+      "user":"mark@gmail.com",
+      "date":"n11223344",
+      "try":"n11223344"
+      }
+  ],
+  "products": [
+    {"id":1,"name":"資料1","date":"2018-01-04","depart":"瀘化工1"},
+    {"id":2,"name":"資料2","date":"2018-01-25","depart":"瀘化工2"},
+    {"id":3,"name":"資料3","date":"2018-02-10","depart":"瀘化工3"},
+    {"id":4,"name":"資料4","date":"2018-03-04","depart":"瀘化工4"},
+    {"id":5,"name":"資料5","date":"2018-05-24","depart":"瀘化工5"},
+    {"id":6,"name":"資料6","date":"2018-10-29","depart":"瀘化工6"}
+  ]
+}

@@ -3,10 +3,10 @@
     <div>
 
       <nav class="navbar">
-        <a class="navbar-brand"><h4><b>搜尋測試</b></h4></a>
+        <a class="navbar-brand"><h4><b>待審核APP</b></h4></a>
         <form class="form-inline">
           <input class="form-control mr-sm-2" type="search" placeholder="會員名字" aria-label="Search" v-model="search">
-          <button class="btn btn-outline-success my-2 my-sm-0" v-on="searchBtn">搜尋</button>
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit" v-on="searchBtn">搜尋</button>
         </form>
       </nav>
 
@@ -56,14 +56,11 @@
     created() {
       EventService.getApps().then(response => {
         this.events = response.data
-        // console.log("data---",response.data);
+        console.log("data---",response.data);
       })
       .catch(error => {
-        // console.log('There was an error:', error.response)
+        console.log('There was an error:', error.response)
       })
     },
-    methods() {
-      
-    }
   }
 </script>

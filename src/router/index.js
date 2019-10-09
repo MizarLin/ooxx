@@ -69,34 +69,34 @@ function configRoutes() {
       component: DefaultContainer,
       children: [
         {
-          path: 'test',
-          name: 'test',
-          component: () => import('@/views/iii/test')
+          path: 'demo1',
+          name: 'demo1',
+          component: () => import('@/views/iii/demo1')
         },
         {
-          path: 'test1',
-          name: 'test1',
-          component: () => import('@/views/iii/test1')
+          path: 'demo2',
+          name: 'demo2',
+          component: () => import('@/views/iii/demo2')
         },
         {
-          path: 'test2',
-          name: 'test2',
-          component: () => import('@/views/iii/test2')
+          path: 'demo3',
+          name: 'demo3',
+          component: () => import('@/views/iii/demo3')
         },
         {
-          path: 'test3',
-          name: 'test3',
-          component: () => import('@/views/iii/test3')
+          path: 'demo4',
+          name: 'demo4',
+          component: () => import('@/views/iii/demo4')
         },
         {
-          path: 'test4',
-          name: 'test4',
-          component: () => import('@/views/iii/test4')
+          path: 'demo5',
+          name: 'demo5',
+          component: () => import('@/views/iii/demo5')
         },
         {
-          path: 'test5',
-          name: 'test5',
-          component: () => import('@/views/iii/test5')
+          path: 'demo6',
+          name: 'demo6',
+          component: () => import('@/views/iii/demo6')
         },
         {
           path: 'test6',
@@ -118,8 +118,6 @@ function configRoutes() {
           name: 'test9',
           component: () => import('@/views/iii/test9')
         },
-
-
 
 
 

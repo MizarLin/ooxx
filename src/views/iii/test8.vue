@@ -1,11 +1,11 @@
 <template>
   <div class="animated fadeIn" style="margin-top: 25px;">
-        <b-card no-body class="card-default">
+    <b-card no-body class="card-default">
       <div slot="header">
-        <i class="fa fa-picture-o"></i> Simple Line Icons
+        <i class="icon-fire"></i> Simple Line Icons
       </div>
       <b-card-body>
       </b-card-body>
     </b-card>
-    </div>
+  </div>
 </template>
