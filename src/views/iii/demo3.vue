@@ -1,16 +1,23 @@
 <template>
   <div class="animated fadeIn">
-
     <div>
-
-          <nav class="navbar">
-            <a class="navbar-brand"><h4><b>待審核開發者</b></h4></a>
-            <form class="form-inline">
-              <input class="form-control mr-sm-2" type="search" placeholder="會員名字" aria-label="Search">
-              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">搜尋</button>
-            </form>
-          </nav>
-
+      <nav class="navbar">
+        <a class="navbar-brand">
+          <h4>
+            <b>待審核開發者</b>
+          </h4>
+        </a>
+        <form class="form-inline">
+          <input
+            class="form-control mr-sm-2"
+            type="search"
+            placeholder="會員名字"
+            aria-label="Search"
+            v-model="keyword"
+          />
+          <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">搜尋</button> -->
+        </form>
+      </nav>
     </div>
 
     <b-card no-body class="card-default" style="text-align: center">
@@ -24,13 +31,17 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="event in events" :key="event.id">
-            <td>{{event.id}}</td>
+          <tr v-for="(event,index) in search(keyword)" :key="event.id">
+            <td>{{index+1}}</td>
             <td>{{event.name}}</td>
-            <td>{{event.twId}}</td>
+            <td>{{event.updated_at}}</td>
             <td>
-              <button type="button" class="btn btn-primary btn-sm">是</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <button type="button" class="btn btn-danger btn-sm">否</button>
+              <button type="button" class="btn btn-primary btn-sm" @click="CheckOK(event.id)">是</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <button
+                type="button"
+                class="btn btn-danger btn-sm"
+                @click="goBack(event.id)"
+              >否</button>
             </td>
           </tr>
         </tbody>
@@ -39,23 +50,55 @@
   </div>
 </template>
 <script>
-import EventService from '@/service/EventService.js'
+import EventService from "@/service/EventService.js";
 
 export default {
-    data() {
+  data() {
     return {
-        events: []
-    }
+      keyword: "",
+      events: []
+    };
+  },
+  created() {
+    EventService.checkDev()
+      .then(response => {
+        this.events = response.data;
+        // console.log("data---", response.data);
+      })
+      .catch(error => {
+        console.log("There was an error:", error.response);
+      });
+  },
+  methods: {
+    search(keyword) {
+      var newList = [];
+      this.events.forEach(event => {
+        if (event.name.indexOf(keyword) != -1) {
+          newList.push(event);
+        }
+      });
+      return newList;
     },
-    created() {
-    EventService.getEvents()
-        .then(response => {
-        this.events = response.data
-        console.log("data---",response.data);
+    CheckOK(id) {
+      axios
+        .put("http://127.0.0.1:8000/api/Admin/devCheckOk/" + id)
+        .then(res => {
+          this.events = res.data;
         })
         .catch(error => {
-        console.log('There was an error:', error.response)
+          console.log(error.res);
+        });
+    },
+    goBack(id) {
+      axios
+        .put("http://127.0.0.1:8000/api/Admin/devGoBack/" + id)
+        .then(res => {
+          this.events = res.data;
         })
+        .catch(error => {
+          console.log(error.res);
+        });
     }
-}
+  }
+};
 </script>

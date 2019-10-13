@@ -6,15 +6,15 @@
           <nav class="navbar">
             <a class="navbar-brand"><h4><b>會員管理</b></h4></a>
             <form class="form-inline">
-              <input class="form-control mr-sm-2" type="search" placeholder="會員名字" aria-label="Search">
-              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">搜尋</button>
+              <input class="form-control mr-sm-2" type="search" placeholder="會員名字" aria-label="Search" v-model="keyword">
+              <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">搜尋</button> -->
             </form>
           </nav>
 
     </div>
 
     <b-card no-body class="card-default" style="text-align: center">
-      <table class="table">
+      <table class="table"  style="table-layout:fixed;">
         <thead>
           <tr>
             <th scope="col">No.</th>
@@ -26,8 +26,8 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="event in events" :key="event.id">
-            <td>{{event.id}}</td>
+          <tr v-for="(event,index) in search(keyword)" v-bind:key="event.id">
+            <td>{{index+1}}</td>
             <td>{{event.name}}</td>
             <td>{{event.phone}}</td>
             <td>{{event.email}}</td>
@@ -47,28 +47,31 @@
 import EventService from '@/service/EventService.js'
 
 export default {
-  name: "member",
-  mounted(){
-
-  },
   data() {
     return {
-      user: {
-        id: "",
-        name: "",
-        phone: "",
-        email: "",
-        level: "",
-      }
+      keyword: "",
+      events: []
     };
   },
-  methods: {
-    loadData() {
-      const api = "http://127.0.0.1:8000/api/member"
-      const vm = this;
-      this.$http.get(api, vm.user).then((response) => {
-        console.log(response);
+  created() {
+    EventService.memberManage()
+      .then(response => {
+        this.events = response.data;
+        // console.log("data---", response.data);
       })
+      .catch(error => {
+        console.log("There was an error:", error.response);
+      });
+  },
+  methods: {
+    search(keyword) {
+      var newList = [];
+      this.events.forEach(event => {
+        if (event.name.indexOf(keyword) != -1) {
+          newList.push(event);
+        }
+      });
+      return newList;
     }
   }
 }
